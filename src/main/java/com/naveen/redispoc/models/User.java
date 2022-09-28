@@ -2,19 +2,17 @@ package com.naveen.redispoc.models;
 
 import javax.persistence.*;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import java.io.Serializable;
 
 @Entity
+@Table(name = "users")
 public class User implements Serializable {
 
-    private static final long serialVersionUID = 7156526077883281623L;
-
+ 
     @Id
-    @SequenceGenerator(name = "SEQ_GEN", sequenceName = "SEQ_USER", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_GEN")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private long followers;

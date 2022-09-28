@@ -30,9 +30,7 @@ public class RedisPocApplication implements CommandLineRunner {
 	
 
 	@Override
-	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public void run(String... args) throws Exception {	
 		
 		  //Populating embedded database here
 	    LOG.info("Saving users. Current user count is {}.", userRepository.count());
