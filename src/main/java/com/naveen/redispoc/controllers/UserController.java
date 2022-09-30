@@ -32,7 +32,6 @@ public class UserController {
     return userRepository.findById(userId).get();
   }
   
-
   @CachePut(value = "users", key = "#user.id")
   @PutMapping("/update")
   public User updatePersonByID(@RequestBody User user) {
@@ -40,14 +39,19 @@ public class UserController {
     return user;
   }
   
+  @CacheEvict(value="users", key="#userId")
+  // @CacheEvict(value="users", allEntries=true) //in case there are multiple records to delete
+  @DeleteMapping("/delete/{userId}")
+  public void deleteInvoice(@PathVariable Long userId) {
+    User user = userRepository.findById(userId).get();
+     userRepository.deleteById( userId);
+  }
+  
+  
 //Both findById() and getOne() methods are used to retrieve an object from underlying datastore. But the underlying mechanism
 //for retrieving records is different for both these methods, infact getOne() is lazy operation which does not even hit the database.
 //https://www.javacodemonk.com/difference-between-getone-and-findbyid-in-spring-data-jpa-3a96c3ff
 
-  
-  
-  
-  
   
 //  @Test
 //  void
