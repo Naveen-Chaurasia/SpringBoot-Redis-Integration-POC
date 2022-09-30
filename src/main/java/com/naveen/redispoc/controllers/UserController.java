@@ -27,9 +27,13 @@ public class UserController {
   @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
   public User getUser(@PathVariable Long userId) {
     LOG.info("Getting user with ID {}.", userId);
+    //return userRepository.getReferenceById(userId);
     return userRepository.findById(userId).get();
   }
   
+//  Both findById() and getOne() methods are used to retrieve an object from underlying datastore. But the underlying mechanism
+//  for retrieving records is different for both these methods, infact getOne() is lazy operation which does not even hit the database.
+  //https://www.javacodemonk.com/difference-between-getone-and-findbyid-in-spring-data-jpa-3a96c3ff
   @CachePut(value = "users", key = "#user.id")
   @PutMapping("/update")
   public User updatePersonByID(@RequestBody User user) {
