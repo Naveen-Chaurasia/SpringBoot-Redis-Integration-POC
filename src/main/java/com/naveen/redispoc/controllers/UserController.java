@@ -25,9 +25,9 @@ public class UserController {
   @SuppressWarnings("deprecation")
   @Cacheable(value = "users", key = "#userId", unless = "#result.followers < 12000")
   @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
-  public User getUser(@PathVariable String userId) {
+  public User getUser(@PathVariable Long userId) {
     LOG.info("Getting user with ID {}.", userId);
-    return userRepository.getById(userId);
+    return userRepository.findById(userId).get();
   }
   
   @CachePut(value = "users", key = "#user.id")

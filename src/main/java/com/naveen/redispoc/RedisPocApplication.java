@@ -27,12 +27,10 @@ public class RedisPocApplication implements CommandLineRunner {
 	    this.userRepository = userRepository;
 	  }
 
-	
 
 	@Override
 	public void run(String... args) throws Exception {	
 		
-		  //Populating embedded database here
 	    LOG.info("Saving users. Current user count is {}.", userRepository.count());
 	    User shubham = new User("Shubham", 2000);
 	    User pankaj = new User("Pankaj", 29000);

@@ -16,10 +16,9 @@ public class RedisConfig extends JCacheConfigurerSupport implements JCacheConfig
 			
 			@Override
 			public void handleCachePutError(RuntimeException exception, Cache cache, Object key, Object value) {
-				// TODO Auto-generated method stub
+				// TODO Auto-generated method stub-
 				
 			}
-			
 			@Override
 			public void handleCacheGetError(RuntimeException exception, Cache cache, Object key) {
 				// TODO Auto-generated method stub
