@@ -13,11 +13,8 @@ import com.naveen.redispoc.repos.UserRepository;
 
 @RestController
 public class UserController {
-
   private final Logger LOG = LoggerFactory.getLogger(getClass());
-
   private final UserRepository userRepository;
-
   @Autowired
   public UserController(UserRepository userRepository) {
     this.userRepository = userRepository;
