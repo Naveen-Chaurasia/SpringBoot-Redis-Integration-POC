@@ -8,7 +8,6 @@ import lombok.Setter;
 import java.io.Serializable;
 @Getter
 @Setter
-
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
@@ -19,7 +18,7 @@ public class User implements Serializable {
     @SequenceGenerator(name = "SEQ_GEN", sequenceName = "SEQ_USER", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_GEN")    
     private Long id;
-    private String name;
+    @Getter @Setter  private String name;
     private long followers;
     public Long getId() {
 		return id;
@@ -44,8 +43,6 @@ public class User implements Serializable {
 	public void setFollowers(long followers) {
 		this.followers = followers;
 	}
-
-
 
     public User() {
     }
