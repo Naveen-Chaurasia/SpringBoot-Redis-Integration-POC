@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component  
 public class AspectClass   
 {  
-@Before(value = "execution(* com.*(..)) and args(empId, fname, sname)")  
+@Before(value = "execution(* com.naveen.redispoc.controllers.*(..)) and args(empId, fname, sname)")  
 public void beforeAdvice(JoinPoint joinPoint, String empId, String fname, String sname) {  
 System.out.println("Before method:" + joinPoint.getSignature());  
 System.out.println("Creating Employee with first name - " + fname + ", second name - " + sname + " and id - " + empId);  

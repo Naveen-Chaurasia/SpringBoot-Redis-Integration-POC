@@ -7,10 +7,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import com.naveen.redispoc.models.User;
 import com.naveen.redispoc.repos.UserRepository;
-
+@EnableAspectJAutoProxy(proxyTargetClass=true) 
 @EnableCaching
 @SpringBootApplication
 public class RedisPocApplication implements CommandLineRunner {
